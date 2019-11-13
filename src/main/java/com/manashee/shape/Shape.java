@@ -14,13 +14,15 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Shape {
     SHAPES type;
-    int l;
+    int l,b; //// CHANGE
 
     public double area() throws UnknownShapeException {
         if ( type == SHAPES.SQUARE ) {
             return l * l;
         } else if ( type == SHAPES.CIRLCE ){
             return Math.PI * l * l ;
+        } else if ( type == SHAPES.RECTANGLE) { // CHANGE
+            return l * b;
         }
         else {
             throw new UnknownShapeException(String.format("The shape %s, is not recognozied.",type ));
@@ -29,6 +31,7 @@ public class Shape {
 
     enum SHAPES  {
         CIRLCE,
-        SQUARE
+        SQUARE,
+        RECTANGLE // CHANGE
     }
 }
